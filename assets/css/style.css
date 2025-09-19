@@ -2176,7 +2176,7 @@ a {
     background: rgba(53, 53, 53, 0.502); /* Adjust color to fit the project */
     backdrop-filter: blur(20px);
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1.2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     width: 80%;
     max-width: 1000px; /* Max width */
@@ -2216,14 +2216,14 @@ a {
   margin-top: 0;
   text-align: center;
   color: #ffffff;
-  font-size: clamp(1rem, 5vw, 2.4rem); /* responsive font */
+  font-size: clamp(0.8rem, 5vw, 2.4rem); /* responsive font */
   margin-bottom: 0;
 }
 
 .project-popup-category {
   text-align: center;
   color: #00c03d;
-  font-size: clamp(0.5rem, 3.5vw, 1.4rem); /* responsive font */
+  font-size: clamp(0.4rem, 3.5vw, 1.4rem); /* responsive font */
   margin-top: 0.5rem;
   padding-bottom: 1rem;
 }
@@ -2297,7 +2297,7 @@ a {
 
 .project-popup-logo {
     display: block;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 10px auto;
     max-width: 150px;
     height: auto;
 }
@@ -2312,7 +2312,7 @@ a {
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding-right: 15px;
+    
 }
 .popup-body::-webkit-scrollbar {
     display: none;
