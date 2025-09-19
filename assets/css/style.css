@@ -2212,21 +2212,22 @@ a {
 
 /* --- POPUP INNER CONTENT --- */
 
-/* Styles for the main title and category */
 .project-popup-title {
-    margin-top: 0;
-    text-align: center;
-    color: #ffffff;
-    font-size: 2.4rem; /* The largest heading */
-    margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 5vw, 2.4rem); /* responsive font */
+  margin-bottom: 0;
 }
+
 .project-popup-category {
-    text-align: center;
-    color: #00c03d;
-    font-size: 1.4rem; /* Smaller than the title */
-    margin-top: 0.5rem;
-    padding-bottom: 1rem; /* Add padding below the category */
+  text-align: center;
+  color: #00c03d;
+  font-size: clamp(1rem, 3.5vw, 1.4rem); /* responsive font */
+  margin-top: 0.5rem;
+  padding-bottom: 1rem;
 }
+
 
 /* Styles for content sections */
 .popup-heading {
@@ -2244,6 +2245,15 @@ a {
     border-radius: 20px;
     object-fit: contain;     /* ป้องกันรูปบิด */
 }
+.project-popup-image-portrait {
+    max-height: 600px;       /* จำกัดความสูงสูงสุด */
+    max-width: 100%;         /* จำกัดไม่ให้กว้างเกิน popup */
+    height: auto;            /* คงสัดส่วน */
+    width: auto;             /* ให้ปรับตามสัดส่วน */
+    border-radius: 20px;
+    object-fit: contain;     /* ป้องกันรูปบิด */
+}
+
 
 .popup-images-container {
     display: flex;
