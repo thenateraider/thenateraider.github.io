@@ -2255,20 +2255,20 @@ a {
 /* Mobile */
 @media (max-width: 480px) {
   .project-popup-image {
-    max-height: 200px;
+    max-height: 150px;
   }
   .project-popup-image-portrait {
-    max-height: 350px;
+    max-height: 200px;
   }
 }
 
 /* Tablet */
 @media (max-width: 768px) {
   .project-popup-image {
-    max-height: 250px;
+    max-height: 200px;
   }
   .project-popup-image-portrait {
-    max-height: 450px;
+    max-height: 300px;
   }
 }
 
