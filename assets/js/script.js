@@ -21,57 +21,20 @@ sidebarBtn.addEventListener("click", function () {
 // ----------------------------------------------------
 // ✅ FILTERING (ฟิลเตอร์และ dropdown)
 // ----------------------------------------------------
-// ตัวแปรสำหรับ dropdown (select)
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-select-value]"); // แก้ไข typo ที่นี่: data-selecct-value -> data-select-value
-
-// ตัวแปรสำหรับปุ่ม filter
+// เลือกปุ่ม filter ทั้งหมด
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-// ตัวแปรสำหรับรายการโปรเจกต์
 const filterItems = document.querySelectorAll("[data-filter-item]");
-
-// ฟังก์ชันหลักสำหรับกรองรายการโปรเจกต์
+// ฟังก์ชันกรองโปรเจกต์
 const filterFunc = function (selectedValue) {
-    for (let i = 0; i < filterItems.length; i++) {
-        // แปลงทั้งค่าที่เลือกและค่า data-category เป็นตัวพิมพ์เล็กทั้งหมดเพื่อเปรียบเทียบ
-        const itemCategory = filterItems[i].dataset.category.toLowerCase();
-        const selectedValueLower = selectedValue.toLowerCase(); // แปลงค่าที่เลือกเป็นตัวพิมพ์เล็ก
-
-        if (selectedValueLower === "all" || selectedValueLower === itemCategory) {
-            filterItems[i].classList.add("active");
+    filterItems.forEach(item => {
+        const itemCategory = item.dataset.category.toLowerCase();
+        if (selectedValue === "all" || selectedValue === itemCategory) {
+            item.classList.add("active");
         } else {
-            filterItems[i].classList.remove("active");
+            item.classList.remove("active");
         }
-    }
-}
-
-// Event Listener สำหรับ dropdown
-select.addEventListener("click", function () {
-    elementToggleFunc(this);
-});
-
-// Event Listener สำหรับทุกรายการใน dropdown
-for (let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener("click", function () {
-        // ใช้ .innerText.toLowerCase() เพื่อให้แน่ใจว่าค่าที่ได้เป็นตัวพิมพ์เล็ก
-        const selectedValue = this.innerText.toLowerCase(); 
-        selectValue.innerText = this.innerText; // แสดงข้อความที่เลือก
-        elementToggleFunc(select);
-        filterFunc(selectedValue);
-
-        // อัปเดตสถานะ 'active' บนปุ่ม filter สำหรับหน้าจอใหญ่
-        filterBtn.forEach(btn => {
-            if (btn.innerText.toLowerCase() === selectedValue) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
     });
 }
-
 // Event Listener สำหรับปุ่ม filter บนหน้าจอใหญ่
 let lastClickedBtn = filterBtn[0]; // เริ่มต้นที่ปุ่มแรก (All)
 for (let i = 0; i < filterBtn.length; i++) {
@@ -79,7 +42,6 @@ for (let i = 0; i < filterBtn.length; i++) {
         const selectedValue = this.innerText.toLowerCase(); // แปลงข้อความปุ่มเป็นตัวพิมพ์เล็ก
         
         // อัปเดตข้อความใน dropdown
-        selectValue.innerText = this.innerText;
 
         filterFunc(selectedValue);
 

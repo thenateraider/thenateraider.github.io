@@ -478,10 +478,11 @@ main {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background: hsla(240, 1%, 17%, 0.15);
+  max-width: auto;
+  max-height: fit-content;
+  background: hsla(0, 0%, 21%, 0.664);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--jet);
+ 
   border-radius: 18px;
   box-shadow: var(--shadow-2);
   z-index: 5;
@@ -493,13 +494,13 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .navbar-link {
   color: var(--light-gray);
   font-size: var(--fs-8);
-  padding: 20px 7px;
+  padding: 15px 4.5px;
   transition: color var(--transition-1);
 }
 
@@ -1297,6 +1298,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   #RESPONSIVE
 \*-----------------------------------*/
 
+
 /**
  * responsive larger than 450px screen
  */
@@ -1964,6 +1966,25 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 }
 
+@media (max-width: 1023px) {
+  .navbar {
+    position: fixed;         /* fix ด้านล่างตลอด */
+    bottom: 3%;               /* ติดขอบล่าง */
+    left: 50%;               /* กึ่งกลางแนวนอน */
+    transform: translateX(-50%); /* ปรับกึ่งกลางจริง */
+    width: max-content;      /* ขนาดพอดีกับเนื้อหา */
+    z-index: 999999;            /* ให้อยู่เหนือเนื้อหาอื่น */
+    border-radius: 20px;
+    box-shadow: 3px 16px 32px rgba(0, 0, 0, 0.55); 
+    padding: 10px 20px;      /* ปรับตามต้องการ */
+    
+  }
+
+  .navbar-list {
+    justify-content: center; /* จัดไอเทม navbar กึ่งกลาง */
+    gap: 15px;               /* ช่องว่างระหว่างลิงก์ */
+  }
+}
 /* ===== floating tooltip (portal) ===== */
 .floating-tooltip {
   position: fixed;
