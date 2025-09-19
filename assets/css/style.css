@@ -2236,23 +2236,52 @@ a {
     font-size: 1.6rem;
     color: var(--primary-color); /* You can define --primary-color in your root */
 }
-/* Styles for images */
 .project-popup-image {
-    max-height: 300px;       /* จำกัดความสูงสูงสุด */
-    max-width: 100%;         /* จำกัดไม่ให้กว้างเกิน popup */
-    height: auto;            /* คงสัดส่วน */
-    width: auto;             /* ให้ปรับตามสัดส่วน */
-    border-radius: 20px;
-    object-fit: contain;     /* ป้องกันรูปบิด */
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  border-radius: 20px;
+  object-fit: contain;
 }
+
 .project-popup-image-portrait {
-    max-height: 600px;       /* จำกัดความสูงสูงสุด */
-    max-width: 100%;         /* จำกัดไม่ให้กว้างเกิน popup */
-    height: auto;            /* คงสัดส่วน */
-    width: auto;             /* ให้ปรับตามสัดส่วน */
-    border-radius: 20px;
-    object-fit: contain;     /* ป้องกันรูปบิด */
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  border-radius: 20px;
+  object-fit: contain;
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .project-popup-image {
+    max-height: 200px;
+  }
+  .project-popup-image-portrait {
+    max-height: 350px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .project-popup-image {
+    max-height: 250px;
+  }
+  .project-popup-image-portrait {
+    max-height: 450px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .project-popup-image {
+    max-height: 300px;
+  }
+  .project-popup-image-portrait {
+    max-height: 600px;
+  }
+}
+
 
 
 .popup-images-container {
