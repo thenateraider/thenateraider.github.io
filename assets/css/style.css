@@ -76,7 +76,7 @@
   --fs-5: 15px;
   --fs-6: 14px;
   --fs-7: 13px;
-  --fs-8: 11px;
+  --fs-8: 13px;
 
   /* font-weight */
   --fw-300: 300;
@@ -1348,7 +1348,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     --fs-4: 18px;
     --fs-6: 15px;
     --fs-7: 15px;
-    --fs-8: 12px;
+    --fs-8: 13px;
 
   }
 
