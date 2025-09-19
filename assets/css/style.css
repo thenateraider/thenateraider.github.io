@@ -2303,10 +2303,12 @@ a {
 }
 /* --- Scrollbar and Filter Styles --- */
 .popup-body p {
-    font-weight: normal; /* ทำให้ตัวอักษรใน <p> เป็นตัวบาง (ค่าปกติ) */
-    text-align: justify;
-    text-indent: 1em;
+  font-weight: normal;
+  text-align: justify;
+  text-indent: 1em;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem); 
 }
+
 .popup-body {
     max-height: 70vh;
     overflow-y: auto;
