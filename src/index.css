@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* นำตัวแปรสีจาก style.css เดิมมาใส่ */
+@theme {
+  --color-green-nate: #67f700;
+  --color-eerie-black: #1e1e1f;
+  --color-jet: #38383b;
+  --font-sans: 'Google Sans', 'Product Sans', sans-serif;
+}
+
+body {
+  background-color: var(--color-eerie-black);
+  font-family: var(--font-sans);
+  @apply antialiased overflow-x-hidden;
+}
