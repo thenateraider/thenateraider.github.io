@@ -81,7 +81,7 @@ export const experience = [
 
 export const education = [
     {
-        degree: "Höheres Fachzertifikat in Industrieelektronik",
+        degree: "Diplom in Industrieelektronik",
         school: "Lampang Technical College",
         year: "2017 — 2019",
         logo: new URL('../assets/images/logo-lampang-tech.png', import.meta.url).href,
