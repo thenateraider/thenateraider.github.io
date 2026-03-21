@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProjectCard({ project, onClick }) {
+    const { t } = useLanguage();
+
     return (
         <motion.div
             layoutId={`card-${project.id}`}
@@ -35,7 +38,7 @@ export default function ProjectCard({ project, onClick }) {
 
                 {/* 👆 View Details hint that appears on hover */}
                 <div className="mt-6 flex items-center text-green-nate text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                    <span>View Case Study</span>
+                    <span>{t('resume', 'viewCaseStudy')}</span>
                     <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { experience, education, awards, skillsData } from '../data/projects';
 import { Book, Briefcase, Award, Cpu } from 'lucide-react';
 import AwardModal from './AwardModal';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Resume() {
     const [selectedAward, setSelectedAward] = useState(null);
+    const { t, content } = useLanguage();
+    const { experience, education, awards, skillsData } = content;
 
     return (
         <div className="space-y-12 pb-20">
@@ -13,7 +15,7 @@ export default function Resume() {
             <section>
                 <div className="flex items-center gap-4 mb-8">
                     <div className="p-3 bg-jet rounded-2xl text-green-nate shadow-lg"><Book size={24} /></div>
-                    <h3 className="text-3xl font-bold text-white">Education</h3>
+                    <h3 className="text-3xl font-bold text-white">{t('resume', 'education')}</h3>
                 </div>
                 <div className="ml-4 border-l-2 border-jet pl-8 space-y-10">
                     {education.map((edu, index) => (
@@ -21,7 +23,7 @@ export default function Resume() {
                             <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-green-nate shadow-[0_0_10px_#67f700]" />
 
                             <div className="flex items-center gap-4 mb-2">
-                                <div className="w-12 h-12 bg-white rounded-xl p-1.5 flex items-center justify-center shadow-md overflow-hidden">
+                                <div className="w-12 h-12 shrink-0 aspect-square bg-white rounded-xl p-1.5 flex items-center justify-center shadow-md overflow-hidden">
                                     <img src={edu.logo} alt={edu.school} className="max-w-full max-h-full object-contain" />
                                 </div>
                                 <div>
@@ -37,7 +39,7 @@ export default function Resume() {
             <section>
                 <div className="flex items-center gap-4 mb-8">
                     <div className="p-3 bg-jet rounded-2xl text-green-nate shadow-lg"><Briefcase size={24} /></div>
-                    <h3 className="text-3xl font-bold text-white">Experience</h3>
+                    <h3 className="text-3xl font-bold text-white">{t('resume', 'experience')}</h3>
                 </div>
                 <div className="ml-4 border-l-2 border-jet pl-8 space-y-10">
                     {experience.map((exp, index) => (
@@ -46,7 +48,7 @@ export default function Resume() {
 
                             {/* เพิ่มส่วนแสดง Logo บริษัท */}
                             <div className="flex items-center gap-4 mb-2">
-                                <div className="w-10 h-10 bg-white rounded-lg p-1 flex items-center justify-center overflow-hidden shadow-md">
+                                <div className="w-10 h-10 shrink-0 aspect-square bg-white rounded-lg p-1 flex items-center justify-center overflow-hidden shadow-md">
                                     <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
                                 </div>
                                 <div>
@@ -65,7 +67,7 @@ export default function Resume() {
             <section className="mt-16">
                 <div className="flex items-center gap-4 mb-8">
                     <div className="p-3 bg-jet rounded-2xl text-green-nate shadow-lg"><Cpu size={24} /></div>
-                    <h3 className="text-3xl font-bold text-white">My Skills</h3>
+                    <h3 className="text-3xl font-bold text-white">{t('resume', 'skills')}</h3>
                 </div>
 
                 <div className="bg-eerie-black border border-jet rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 space-y-8 sm:space-y-10">
@@ -80,7 +82,7 @@ export default function Resume() {
                                         className="group flex flex-col items-center gap-2.5 w-full sm:w-auto"
                                     >
                                         {/* Icon Container */}
-                                        <div className="p-3 sm:p-3.5 bg-jet rounded-2xl border border-white/5 shadow-lg transition-all duration-300 group-hover:border-green-nate/50 group-hover:shadow-[0_0_20px_rgba(103,247,0,0.15)] flex items-center justify-center">
+                                        <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 aspect-square bg-jet rounded-2xl border border-white/5 shadow-lg transition-all duration-300 group-hover:border-green-nate/50 group-hover:shadow-[0_0_20px_rgba(103,247,0,0.15)] flex items-center justify-center">
                                             <img src={skill.icon} alt={skill.name} className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
                                         </div>
 
@@ -100,7 +102,7 @@ export default function Resume() {
             <section>
                 <div className="flex items-center gap-4 mb-8">
                     <div className="p-3 bg-jet rounded-2xl text-green-nate shadow-lg"><Award size={24} /></div>
-                    <h3 className="text-3xl font-bold text-white">Achievements</h3>
+                    <h3 className="text-3xl font-bold text-white">{t('resume', 'achievements')}</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {awards.map((award, index) => (
@@ -144,7 +146,7 @@ export default function Resume() {
 
                                 {/* 👆 Call to action: "View Details" */}
                                 <div className="mt-4 flex items-center text-green-nate text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-3 group-hover:translate-y-0">
-                                    <span>View Details</span>
+                                    <span>{t('resume', 'viewDetails')}</span>
                                     <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path>
                                     </svg>

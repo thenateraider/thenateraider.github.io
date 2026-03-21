@@ -43,7 +43,7 @@ export default function AwardModal({ award, onClose }) {
                                 <img src={award.image} alt={award.title} className="w-full h-full object-cover" />
                             ) : (
                                 <div className="w-full h-full bg-jet/50 flex items-center justify-center">
-                                    <span className="text-gray-500 font-medium text-lg">No Image Available</span>
+                                    <span className="text-gray-500 font-medium text-lg">{t('modal', 'noImageAvailable')}</span>
                                 </div>
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
@@ -85,7 +85,7 @@ export default function AwardModal({ award, onClose }) {
                                 <div className="bg-black/30 p-6 sm:p-8 md:p-10 rounded-[32px] border border-white/5 shadow-lg">
                                     <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-4">
                                         <span className="w-10 h-1 bg-green-nate rounded-full shadow-[0_0_10px_#67f700]"></span>
-                                        Event Gallery
+                                        {t('modal', 'eventGallery')}
                                     </h3>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                                         {[award.image, ...award.extraImages].filter(Boolean).map((imgUrl, i) => (

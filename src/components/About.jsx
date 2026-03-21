@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-import { services, personalInfo } from '../data/projects';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function About() {
+    const { content, t } = useLanguage();
+    const { services, aboutMe } = content;
+
     return (
         <div className="space-y-10 text-white">
             {/* ส่วนเนื้อหาแนะนำตัว */}
@@ -12,17 +15,15 @@ export default function About() {
 
                 {/* ✍️ Main Headline */}
                 <h1 className="relative text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-8 drop-shadow-xl">
-                    Highly motivated <span className="text-green-nate drop-shadow-[0_0_25px_rgba(103,247,0,0.5)]">Electronics and IoT Developer</span> with expertise in
-                    IoT prototyping, embedded systems and IT support.
+                    {aboutMe.headlinePre} <span className="text-green-nate drop-shadow-[0_0_25px_rgba(103,247,0,0.5)]">{aboutMe.headlineHighlight}</span> {aboutMe.headlinePost}
                 </h1>
 
                 {/* 📖 Subtext / Description */}
                 <p className="relative text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto font-light">
-                    Proven strong problem-solving skills and success in cost-reducing and efficiency-enhancing projects.
-                    Winner of several national and international innovation awards.
+                    {aboutMe.description}
 
                     <strong className="block mt-8 text-white font-semibold text-2xl md:text-3xl drop-shadow-lg tracking-wide">
-                        "I am looking for a position to contribute my technical knowledge and my talent for solving problems."
+                        {aboutMe.quote}
                     </strong>
                 </p>
             </section>
@@ -30,7 +31,7 @@ export default function About() {
 
             {/* ส่วน What I'm doing */}
             <section>
-                <h3 className="text-3xl font-bold mb-8">What I'm doing</h3>
+                <h3 className="text-3xl font-bold mb-8">{t('about', 'what')}</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {services.map((service, index) => (
                         <motion.div

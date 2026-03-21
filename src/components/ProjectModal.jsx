@@ -2,9 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import { createPortal } from "react-dom";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProjectModal({ project, onClose }) {
     const [selectedImage, setSelectedImage] = useState(null);
+    const { t } = useLanguage();
 
     return createPortal(
         <>
@@ -43,7 +45,7 @@ export default function ProjectModal({ project, onClose }) {
                                 <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                             ) : (
                                 <div className="w-full h-full bg-jet/50 flex items-center justify-center">
-                                    <span className="text-gray-500 font-medium text-lg">No Image Available</span>
+                                    <span className="text-gray-500 font-medium text-lg">{t('modal', 'noImage')}</span>
                                 </div>
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
@@ -93,7 +95,7 @@ export default function ProjectModal({ project, onClose }) {
                                                     <ul key={idx} className="space-y-4 list-none text-lg md:text-xl font-light">
                                                         {block.items.map((item, i) => (
                                                             <li key={i} className="flex items-start group">
-                                                                <span className="flex-shrink-0 mt-2.5 mr-5 w-2 h-2 bg-green-nate rounded-full shadow-[0_0_10px_#67f700] transition-transform group-hover:scale-150"></span>
+                                                                <span className="flex-shrink-0 mt-2.5 mr-5 w-2 h-2 bg-green-nate rounded-full shadow-[0_0_15px_#67f700] transition-transform group-hover:scale-150"></span>
                                                                 <span className="leading-relaxed tracking-wide group-hover:text-white transition-colors">{item}</span>
                                                             </li>
                                                         ))}
@@ -123,7 +125,7 @@ export default function ProjectModal({ project, onClose }) {
                                 <div className="bg-black/30 p-6 sm:p-8 md:p-10 rounded-[32px] border border-white/5 shadow-lg">
                                     <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-4">
                                         <span className="w-10 h-1 bg-green-nate rounded-full shadow-[0_0_10px_#67f700]"></span>
-                                        Project Gallery
+                                        {t('modal', 'projectGallery')}
                                     </h3>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                                         {[project.image, ...project.extraImages].filter(Boolean).map((imgUrl, i) => (
