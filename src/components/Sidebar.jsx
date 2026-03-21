@@ -33,33 +33,33 @@ export default function Sidebar() {
                 // ระยะที่ให้ Sidebar เดิมหายไป (ลบออก 100px เผื่อระยะขอบ)
                 const triggerPoint = typeof sidebarHeight === 'number' ? sidebarHeight - 100 : 350;
 
-                // ใช้กลไกหน่วง: เลื่อนลงเลยจุดไปนิดนึงค่อยโผล่ เลื่อนกลับขึ้นมาเลยจุดไปนิดนึงค่อยหาย
-                if (window.scrollY > triggerPoint + 20) {
+                // ใช้ Hysteresis แบบเจาะจง ป้องกัน Layout Shift เวลา scroll ช้าๆ
+                if (!isSticky && window.scrollY > triggerPoint + 60) {
                     setIsSticky(true);
-                } else if (window.scrollY < triggerPoint - 20) {
+                } else if (isSticky && window.scrollY < triggerPoint - 60) {
                     setIsSticky(false);
                 }
             } else {
-                setIsSticky(false);
+                if (isSticky) setIsSticky(false);
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         // รันหนึ่งครั้งตอนโหลดเพื่อเช็คตำแหน่งเริ่มต้น
         handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [sidebarHeight]);
+    }, [sidebarHeight, isSticky]);
 
     // ปรับ Transition ให้เด้งนิดๆ แบบพองาม และมีความต่อเนื่อง
     const morphTransition = { type: "spring", stiffness: 600, damping: 35, mass: 0.4 };
 
     return (
         <div
-            className="relative w-full lg:w-80"
+            className="relative w-full lg:w-80 lg:self-stretch"
             // ล็อคความสูงเฉพาะตอนเลื่อนหน้าจอเป็น sticky เพื่อป้องกันหน้าเว็บ Layout Shift (ยุบพุ่งขึ้นไป)
             style={{ minHeight: (isMobile && isSticky && sidebarHeight !== 'auto') ? sidebarHeight : 'auto' }}
         >
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
                 {isMobile && isSticky ? (
                     /* 📱 Mobile Mini Sidebar (Floating) */
                     <motion.aside

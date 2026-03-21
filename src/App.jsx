@@ -20,7 +20,7 @@ function App() {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-neutral-950 p-6 pb-32 md:p-12 md:pb-36 flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-start relative">
+    <div className="min-h-screen bg-neutral-950 p-6 pb-32 md:p-12 md:pb-36 flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-start lg:items-stretch relative">
 
       {/* 🟢 Sidebar (ข้อมูลส่วนตัว) */}
       <Sidebar info={personalInfo} />
