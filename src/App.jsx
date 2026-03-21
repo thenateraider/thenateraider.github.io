@@ -104,7 +104,7 @@ function App() {
             <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-nate rounded-full shadow-[0_0_8px_rgba(103,247,0,0.6)]" />
           </div>
           <span className="text-[10px] mt-1 pr-0.5 font-bold uppercase tracking-wider">
-            {language === 'en' ? 'DE' : 'EN'}
+            {language === 'en' ? 'EN' : 'DE'}
           </span>
         </button>
       </nav>
