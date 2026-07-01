@@ -1,5 +1,5 @@
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, Phone, MapPin, Calendar, Facebook, Github, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, Facebook, Github, Instagram, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 
@@ -219,6 +219,7 @@ export default function Sidebar() {
                             {/* Social Links */}
                             <div className="flex justify-center gap-4 text-gray-400 relative z-10 w-full px-2">
                                 <SocialLink href={personalInfo.socials.github} icon={<Github size={20} />} />
+                                <SocialLink href={personalInfo.socials.linkedin} icon={<Linkedin size={20} />} />
                                 <SocialLink href={personalInfo.socials.facebook} icon={<Facebook size={20} />} />
                                 <SocialLink href={personalInfo.socials.instagram} icon={<Instagram size={20} />} />
                             </div>

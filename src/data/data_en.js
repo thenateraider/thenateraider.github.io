@@ -9,7 +9,8 @@ export const personalInfo = {
     socials: {
         facebook: "https://facebook.com/thenateraider",
         github: "https://github.com/thenateraider",
-        instagram: "https://instagram.com/thenateraider"
+        instagram: "https://instagram.com/thenateraider",
+        linkedin: "https://www.linkedin.com/in/ekkaluck-d"
     }
 };
 // src/data/projects.js
